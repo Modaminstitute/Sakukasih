@@ -14,10 +14,10 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Jejak Donatur',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         '/donation': (context) => const DonationPage(),
         '/history': (context) => const DonationHistoryPage(),
         '/profile': (context) => const ProfilePage(),
-        '/donation-update': (context) => const UpdateInfoPage()
+        '/donation-update': (context) => const UpdateInfoPage(),
       },
     );
   }
