@@ -25,18 +25,22 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple,
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Logo atau icon aplikasi
-            Icon(Icons.favorite, color: Colors.white, size: 80),
+            // Logo aplikasi dari assets
+            Image.asset(
+              'assets/icon/sakukasihlogo.png',
+              width: 100,
+              height: 100,
+            ),
             const SizedBox(height: 24),
             const Text(
               'SakuKasih',
               style: TextStyle(
-                color: Colors.white,
+                color: Color(0xFF441F95),
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 2,
@@ -46,8 +50,7 @@ class _SplashPageState extends State<SplashPage> {
             const Text(
               'Donasi mudah, cepat, dan aman',
               style: TextStyle(
-                color: Colors.white70,
-                fontSize: 16,
+                color: Color(0xFF441F95),
                 fontStyle: FontStyle.italic,
               ),
             ),
