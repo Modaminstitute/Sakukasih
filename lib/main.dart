@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-
-// Tambahkan semua import halaman
+import 'screens/splash.dart';
 import 'screens/register_page.dart';
 import 'screens/campaign_detail_page.dart';
 import 'screens/donation_page.dart';
@@ -29,8 +28,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const RegisterPage(),
+      home: const SplashPage(),
       routes: {
+        '/register': (context) => const RegisterPage(),
         '/home': (context) => const RegisterPage(),
         '/campaign-detail': (context) => const CampaignDetailPage(),
         '/donation': (context) => const DonationPage(),
