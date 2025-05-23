@@ -40,11 +40,11 @@ This version of Sakukasih is focused on:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/sakukasih.git
+   git clone https://github.com/modaminstitute/sakukasih-alpha.git
 2. **Navigate into the project directory**  
    Change into the project folder where the code resides:
    ```bash
-   cd sakukasih
+   cd Sakukasih-alpha
 
 4. **Install dependencies**  
    Fetch all the necessary Dart and Flutter packages required to run the app: 
