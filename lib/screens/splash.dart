@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jejakdonaturapp/screens/register_page.dart';
+import 'package:jejakdonaturapp/screens/login_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -16,7 +16,7 @@ class _SplashPageState extends State<SplashPage> {
       if (mounted) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const RegisterPage()),
+          MaterialPageRoute(builder: (context) => const LoginPage()),
         );
       }
     });
