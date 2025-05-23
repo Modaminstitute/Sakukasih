@@ -41,3 +41,17 @@ This version of Sakukasih is focused on:
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/sakukasih.git
+2. **Navigate into the project directory**  
+   Change into the project folder where the code resides:  
+   `cd sakukasih`
+
+3. **Install dependencies**  
+   Fetch all the necessary Dart and Flutter packages required to run the app:  
+   `flutter pub get`
+
+4. **Set up your environment**  
+   Configure your environment by creating a `.env` file (if needed) and adding your Supabase project URL and anon/public API key.
+
+5. **Run the app**  
+   Launch the application on your emulator or physical device using:  
+   `flutter run`
