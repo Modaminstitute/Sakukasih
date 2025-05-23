@@ -32,6 +32,9 @@ class DonationHistoryPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Riwayat Donasi'),
+        backgroundColor:Color(0xFF441F95),
+        foregroundColor: Colors.white,
+        elevation: 0,
       ),
       body: ListView.builder(
         padding: const EdgeInsets.all(16),
@@ -39,22 +42,22 @@ class DonationHistoryPage extends StatelessWidget {
         itemBuilder: (context, index) {
           final donation = _donationHistory[index];
           return Card(
-            margin: const EdgeInsets.only(bottom: 12),
+            margin: const EdgeInsets.only(bottom: 16),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(16),
             ),
-            elevation: 2,
+            elevation: 4,
             child: Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(18),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CircleAvatar(
-                    radius: 24,
-                    backgroundColor: Colors.purpleAccent,
-                    child: Icon(Icons.attach_money, color: Colors.white),
+                  CircleAvatar(
+                    radius: 28,
+                    backgroundColor: Colors.purple.shade100,
+                    child: const Icon(Icons.volunteer_activism, color:Color(0xFF441F95), size: 30),
                   ),
-                  const SizedBox(width: 16),
+                  const SizedBox(width: 18),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,28 +65,49 @@ class DonationHistoryPage extends StatelessWidget {
                         Text(
                           donation['title'],
                           style: const TextStyle(
-                            fontSize: 16,
+                            fontSize: 17,
                             fontWeight: FontWeight.bold,
+                            color: Colors.black87,
                           ),
                         ),
-                        const SizedBox(height: 4),
-                        Text(
-                          donation['amount'],
-                          style: const TextStyle(color: Colors.grey),
-                        ),
-                        const SizedBox(height: 8),
-                        TextButton.icon(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => const UpdateInfoPage(),
+                        const SizedBox(height: 6),
+                        Row(
+                          children: [
+                            const Icon(Icons.monetization_on, color: Colors.green, size: 18),
+                            const SizedBox(width: 6),
+                            Text(
+                              donation['amount'],
+                              style: const TextStyle(
+                                color: Colors.green,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 15,
                               ),
-                            );
-                          },
-                          icon: const Icon(Icons.info_outline, size: 18),
-                          label: const Text("Lihat Update Info"),
-                        )
+                            ),
+                          ],
+                        ),
+                        const Divider(height: 22, thickness: 1),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: OutlinedButton.icon(
+                            style: OutlinedButton.styleFrom(
+                              foregroundColor: Color(0xFF441F95),
+                              side: const BorderSide(color: Color(0xFF441F95)),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => const UpdateInfoPage(),
+                                ),
+                              );
+                            },
+                            icon: const Icon(Icons.info_outline, size: 18),
+                            label: const Text("Lihat Update Info"),
+                          ),
+                        ),
                       ],
                     ),
                   ),

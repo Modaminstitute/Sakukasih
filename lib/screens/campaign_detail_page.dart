@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jejakdonaturapp/screens/donation_goods_page.dart';
 import 'package:jejakdonaturapp/screens/donation_page.dart';
+import 'package:share_plus/share_plus.dart';
 
 class CampaignDetailPage extends StatelessWidget {
   final String title;
@@ -24,7 +26,7 @@ class CampaignDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Detail Kampanye'),
-        backgroundColor: Colors.purple,
+        backgroundColor:Color(0xFF441F95),
         foregroundColor: Colors.white,
         elevation: 0,
       ),
@@ -84,7 +86,7 @@ class CampaignDetailPage extends StatelessWidget {
               LinearProgressIndicator(
                 value: progress,
                 backgroundColor: Colors.purple.shade100,
-                valueColor: const AlwaysStoppedAnimation<Color>(Colors.purple),
+                valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF441F95)),
                 minHeight: 12,
                 borderRadius: BorderRadius.circular(12),
               ),
@@ -96,29 +98,81 @@ class CampaignDetailPage extends StatelessWidget {
               ),
               const SizedBox(height: 40),
               
-              // Tombol donasi
+              // Tombol donasi dana & barang
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const DonationPage(),
+                          ),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF441F95),
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: const Text(
+                        'Donasi Dana',
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: OutlinedButton.icon(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const DonationGoodsPage(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(Icons.card_giftcard, color: Color(0xFF441F95)),
+                      label: const Text(
+                        'Donasi Barang',
+                        style: TextStyle(color: Color(0xFF441F95), fontSize: 16),
+                      ),
+                      style: OutlinedButton.styleFrom(
+                        side: const BorderSide(color: Color(0xFF441F95)),
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              // Tombol Bagikan
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const DonationPage(),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purple,
+                child: OutlinedButton.icon(
+                  icon: const Icon(Icons.share, color:Color(0xFF441F95)),
+                  label: const Text(
+                    'Bagikan Kampanye',
+                    style: TextStyle(color: Color(0xFF441F95), fontSize: 16),
+                  ),
+                  style: OutlinedButton.styleFrom(
+                    side: const BorderSide(color: Color(0xFF441F95)),
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: const Text(
-                    'Donasi Sekarang',
-                    style: TextStyle(color: Colors.white, fontSize: 16),
-                  ),
+                  onPressed: () {
+                    final shareText =
+                        'Ayo dukung kampanye "$title"!\n\n$description\n\nTarget: Rp${targetAmount.toInt()}\nTerkumpul: Rp${collectedAmount.toInt()}';
+                    Share.share(shareText);
+                  },
                 ),
               ),
             ],

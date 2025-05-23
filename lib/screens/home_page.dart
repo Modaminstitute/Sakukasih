@@ -59,7 +59,7 @@ class _HomeContent extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Kampanye Donasi'),
-        backgroundColor: Colors.purple,
+        backgroundColor: Color(0xFF441F95),
         foregroundColor: Colors.white,
         actions: [
           IconButton(
